@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Widget</title>
+        <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+   
+    </head>
+    <body>
+        <div class="wrapper">
+                <header>
+                    <div class="left">
+                            <a href="#"><i class="fas fa-angle-down"></i></a>
+                            <div class="order">Order Book</div>                
+                    </div>
+                    <div class="right">
+                            <a href="#"><i class="fas fa-info-circle"></i></a>
+                            <a href="#"><i class="fas fa-cog"></i></a>
+
+                   </div>
+                    </header>
+                        <div class="lables">
+                                <div class="label1">
+                                        <div>Count</div>
+                                        <div>Total</div>
+                                        <div>Amount</div>    
+                                        <div>Price</div>
+                                    </div>
+                                    <div class="label2">
+                                            <div>Count</div>
+                                            <div>Total</div>
+                                            <div>Amount</div>    
+                                            <div>Price</div>
+                                        </div>
+                        </div>
+
+                       
+     <div id="app">
+        <div class="tables">
+      
+       <div class="table1">
+          
+            <div class="data" v-for="(bid, ind) in bids" style="position: relative;">
+                    <div>{{bid.numberOfOrders}}</div>
+                    <div>{{bid.total}}</div>
+                    <div>{{bid.quantity}}</div>
+                    <div>{{bid.price}} <div class="graphic" :style="`width: ${bid.width}%`"></div></div>
+            </div>
+
+        </div>
+
+        <div class="table2">
+               
+                <div class="data" v-for="(ask, ind) in asks" style="position: relative;">
+                        <div>{{ask.price}}</div>
+                        <div>{{ask.quantity}}</div>
+                        <div>{{ask.total}}</div>
+                        <div>{{ask.numberOfOrders}} <div class="graphic" :style="`width: ${ask.width}%`"></div></div>
+                </div>
+    
+            </div>
+
+        </div>
+    </div>
+</div>
+   
+        <script src="scripts/vue.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
+        <script src="scripts/jquery.js"></script>
+        <script src="scripts/main.js"></script>
+    </body>
+</html>
